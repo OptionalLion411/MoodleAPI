@@ -145,8 +145,8 @@ class BaseEnrol(BaseMoodle):
         )
         return self._trs(User, data)
 
-    def get_users_courses(self):
-        data = self.moodle.post("core_enrol_get_users_courses")
+    def get_users_courses(self, userid: int) -> list[dict]:
+        data = self.moodle.post("core_enrol_get_users_courses", userid=userid)
         return data
 
     def search_users(self):
